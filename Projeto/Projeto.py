@@ -11,17 +11,14 @@ QtdColunas = int(Matriz_Entrada.readline())
 
 # Mapeando a Matriz
 for i in Matriz_Entrada:
-    Matriz_Entrada
     if i != "":
         Matriz.append(i.split())
 
 # Criando o Print da Matriz e o realizando
-linhas = len(Matriz)
-colunas = len(Matriz[0])
 def PrintMatriz(Matriz):
-    for l in range(linhas):
+    for l in range(len(Matriz)):
         linha = ""
-        for c in range(colunas):
+        for c in range(len(Matriz[0])):
             linha = linha + " " + str(Matriz[l][c])
         print(linha)
 
@@ -29,16 +26,38 @@ PrintMatriz(Matriz)
 
 # Localizando os pontos da Matriz
 pontos = {}
-for l in range(linhas):
-    for c in range(colunas):
+for l in range(len(Matriz)):
+    for c in range(len(Matriz[0])):
         if Matriz[l][c] == 'R':
-            pontos['RFinal'] = [l, c]
+            pontos['RF'] = [l, c]
         if Matriz[l][c] != '0':
             pontos[Matriz[l][c]] = [l, c]
 
+print(pontos)
+
 # Calculando a distância entre os pontos
 def distancias(Coord1, Coord2):
-    return abs((int(Coord1[0]) - int(Coord2[0]))) + ((int(Coord1[1]) - int(Coord2[1])))
+    return abs(((int(Coord1[0]) - int(Coord2[0])))) + abs(((int(Coord1[1]) - int(Coord2[1]))))
 
+# Gerando as permutações e obtendo as rotas
 Recebidos = permutations(pontos)
-print(Recebidos)
+Distancia = []
+Rotas = {}
+for i in list(Recebidos):
+    if i[0] == 'R' and i[len(i) - 1] == 'RF':
+        for coordenada in range(len(i) - 1):
+            Distancia.append(distancias(pontos[i[coordenada]], pontos[i[coordenada + 1]]))
+        Rotas[sum(Distancia)] = i
+        Distancia = []
+
+# Selecionando a rota com menor percurso
+Valores = []
+for i in Rotas:
+    Valores.append(i)
+print(min(Valores))
+
+# Removendo o ponto 'R' da menor rota
+MenorRota = list(Rotas[min(Valores)])
+if 'R' or 'RF' in MenorRota:
+    MenorRota.remove('R') or MenorRota.remove('RF')
+print(MenorRota)
