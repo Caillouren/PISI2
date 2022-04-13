@@ -14,6 +14,8 @@ for i in Matriz_Entrada:
     if i != "":
         Matriz.append(i.split())
 
+Matriz_Entrada.close()
+
 # Criando o Print da Matriz e o realizando
 def PrintMatriz(Matriz):
     for l in range(len(Matriz)):
@@ -22,7 +24,7 @@ def PrintMatriz(Matriz):
             linha = linha + " " + str(Matriz[l][c])
         print(linha)
 
-PrintMatriz(Matriz)
+#PrintMatriz(Matriz)
 
 # Localizando os pontos da Matriz
 pontos = {}
@@ -33,7 +35,7 @@ for l in range(len(Matriz)):
         if Matriz[l][c] != '0':
             pontos[Matriz[l][c]] = [l, c]
 
-print(pontos)
+#print(pontos)
 
 # Calculando a distância entre os pontos
 def distancias(Coord1, Coord2):
@@ -47,8 +49,12 @@ for i in list(Recebidos):
     if i[0] == 'R' and i[len(i) - 1] == 'RF':
         for coordenada in range(len(i) - 1):
             Distancia.append(distancias(pontos[i[coordenada]], pontos[i[coordenada + 1]]))
+            #print(i)
+        #print(Distancia)
         Rotas[sum(Distancia)] = i
         Distancia = []
+
+#print(Rotas)
 
 # Selecionando a rota com menor percurso
 Valores = []

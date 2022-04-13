@@ -1,7 +1,0 @@
-Ler matriz - DONE
-Printar matriz - DONE
-Localizar pontos (letras) - DONE
-calcular distâncias entre pontos -DONE
-permutar percusos -
-somar permutação -
-printar melhor rota(Menor valor lista rotas) - 
