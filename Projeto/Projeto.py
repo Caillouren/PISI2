@@ -54,7 +54,7 @@ for i in list(Recebidos):
         Rotas[sum(Distancia)] = i
         Distancia = []
 
-#print(Rotas)
+# print(Rotas)
 
 # Selecionando a rota com menor percurso
 Valores = []
