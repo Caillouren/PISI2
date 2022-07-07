@@ -3,7 +3,7 @@ from itertools import permutations
 
 # Criação da Matriz e leitura do .txt contendo a matriz
 Matriz = []
-Matriz_Entrada = open('/Users/Caio_/Documents/GitHub/PISI2/Projeto\MatrizEntrada.txt', 'r')
+Matriz_Entrada = open('/Users/Caio_/Documents/GitHub/PISI2/Projeto\matriz.txt', 'r')
 
 # Quantidade de linhas e colunas da matriz
 QtdLinhas = int(Matriz_Entrada.readline(1))
@@ -54,7 +54,7 @@ for i in list(Recebidos):
         Rotas[sum(Distancia)] = i
         Distancia = []
 
-# print(Rotas)
+print(Rotas)
 
 # Selecionando a rota com menor percurso
 Valores = []
