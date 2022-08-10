@@ -60,7 +60,8 @@ print(Rotas)
 Valores = []
 for i in Rotas:
     Valores.append(i)
-print(min(Valores))
+# print(min(Valores))
+print(list(Rotas))
 
 # Removendo o ponto 'R' da menor rota
 MenorRota = list(Rotas[min(Valores)])
