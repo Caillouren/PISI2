@@ -5,7 +5,6 @@ from itertools import permutations
 matriz = []
 with open('/Users/Caio_/Documents/GitHub/PISI2/Projeto\matriz.txt', 'r') as matriz_entrada:
     for i in matriz_entrada:
-        # print(i)
         matriz.append(i.split())
     matriz.remove(matriz[0]) # Remoção da linha informativa sobre a Qtd de linhas e colunas
 
@@ -17,8 +16,6 @@ for l in range(len(matriz)): # Número de linhas dentro da matriz
             pontos['RF'] = [l, c]
         if matriz[l][c] != '0':
             pontos[matriz[l][c]] = [l, c]
-# print(pontos)
-
 
 # Função de calculo de distância entre os pontos
 def distancias(Coord1, Coord2):
@@ -34,8 +31,6 @@ for i in list(recebidos):
     if i[0] == 'R' and i[len(i) - 1] == 'RF':
         for coordenada in range(len(i) - 1):
             distancia.append(distancias(pontos[i[coordenada]], pontos[i[coordenada + 1]]))
-            # print(i)
-        # print(distancia)
 
         # Transformando a key de rotas em um inteiro para seleção da menor rota
         menor_rota_anterior = list(rotas.keys())
@@ -43,8 +38,6 @@ for i in list(recebidos):
             rotas.clear()
             rotas[sum(distancia)] = i
         distancia = []
-        # print(rotas.keys())
-# print(rotas.values())
 
 # Menor rota
 print(rotas)
