@@ -3,7 +3,7 @@ from itertools import permutations
 
 # Abertura do txt e mapeamento da matriz
 matriz = []
-with open('/Users/Caio_/Documents/GitHub/PISI2/Projeto\matriz.txt', 'r') as matriz_entrada:
+with open('Projeto/matriz.txt', 'r') as matriz_entrada:
     for i in matriz_entrada:
         matriz.append(i.split())
     matriz.remove(matriz[0]) # Remoção da linha informativa sobre a Qtd de linhas e colunas
@@ -19,7 +19,7 @@ for l in range(len(matriz)): # Número de linhas dentro da matriz
 
 # Função de calculo de distância entre os pontos
 def distancias(Coord1, Coord2):
-    return abs( (Coord1[0]) - (Coord2[0]) ) + abs( (Coord1[1]) - int(Coord2[1]) )
+    return abs( (Coord1[0]) - (Coord2[0]) ) + abs( (Coord1[1]) - (Coord2[1]) )
 
 # Permutando as rotas
 recebidos = permutations(pontos)
