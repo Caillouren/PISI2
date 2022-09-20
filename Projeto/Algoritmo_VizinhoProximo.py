@@ -60,7 +60,7 @@ while len(matriz) != 0:
             controller = (distancias(pontos[f'{coordenada}'], pontos[matriz[ponto]]))
 
             # Controle da lista mantendo a coordenada do vizinho mais próximo
-            if len(coordenadas) >= 2:
+            if len(coordenadas) > 1:
                 coordenadas.remove(coordenadas[0])
     
     # Limpeza de variáveis para re-operação, cálculo dos próximos pontos
