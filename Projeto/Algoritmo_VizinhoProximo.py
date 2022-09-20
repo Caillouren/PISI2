@@ -17,8 +17,7 @@ with open('Projeto/matriz.txt', 'r') as matriz_entrada:
             if matriz[l][c] != '0':
                 pontos[matriz[l][c]] = [l, c]
 
-print(pontos)
-
+# Coleta, exclusiva, das Keys do dicionário pontos
 matriz = list(pontos.keys())
 
 # Função de cálculo de distância entre os pontos
@@ -35,7 +34,11 @@ def encontrar_chave(valor_chave):
 coordenada = 'R'
 
 # Remoção do ponto de início da lista de trabalho
-matriz.remove('R')
+matriz.remove(f'{coordenada}')
+
+# Listas de armazenamento dos dados finais
+rota = []
+tamanho_percurso = []
 
 while len(matriz) != 0:
     # Lista de controle das distâncias de todos os vizinhos
@@ -62,18 +65,19 @@ while len(matriz) != 0:
     
     # Limpeza de variáveis para re-operação, cálculo dos próximos pontos
     coordenada = encontrar_chave(coordenadas[0])
+
+    # Armazenamento da rota percorrida
+    rota.append(coordenada)
+
+    # Armazenamento da distância do percurso
+    tamanho_percurso.append(min(distancia))
+
+    # Renovação das variáveis de trabalho
     matriz.remove(f'{coordenada}')
-    distancia.clear()
-    # break
 
-print(coordenada)
-# print(min(distancia))
-print(distancia)
-print(matriz)
+# Cálculo da volta para o ponto R
+tamanho_percurso.append(distancias(pontos['R'], pontos[rota[-1]]))
 
-"""
-    Salvar a rota
-    Salvar a distância total da rota
-    Retornar para R e somar retorno
-    Print da rota e custo total associado a ela
-"""
+# Saída final do algoritmo
+print(' '.join(rota))
+print(f'O custo em dronômetros dessa rota é de: {sum(tamanho_percurso)} dronômetros!')
